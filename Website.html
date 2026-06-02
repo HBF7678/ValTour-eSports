@@ -1,0 +1,884 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Level up at ValTour eSports — gaming cafe with standard, premium & VIP stations, tournaments, streaming booths, and online/WhatsApp booking." />
+  <meta name="keywords" content="gaming cafe, eSports, PC gaming, tournaments, booking, WhatsApp, ValTour eSports" />
+  <meta name="robots" content="index, follow" />
+
+  <title>ValTour eSports | Gaming Cafe</title>
+
+  <style>
+    :root{
+      --bg:#070A12;
+      --panel:#0E1426;
+      --panel2:#0B1020;
+      --text:#EAF0FF;
+      --muted:#A9B4D0;
+      --brand:#7C5CFF;
+      --brand2:#22D3EE;
+      --good:#22c55e;
+      --warn:#f59e0b;
+      --danger:#ef4444;
+      --ring:rgba(124,92,255,.35);
+      --shadow: 0 16px 40px rgba(0,0,0,.45);
+      --radius:18px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(900px 500px at 10% -10%, rgba(124,92,255,.30), transparent 60%),
+        radial-gradient(700px 450px at 90% 0%, rgba(34,211,238,.22), transparent 55%),
+        radial-gradient(600px 450px at 50% 120%, rgba(124,92,255,.15), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1120px;margin:0 auto;padding:0 18px}
+
+    /* Top Nav */
+    .topbar{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(7,10,18,.62);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 0;
+      gap:12px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:10px;min-width:220px;
+    }
+    .logo{
+      width:36px;height:36px;border-radius:12px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow: 0 0 0 6px rgba(124,92,255,.15);
+      position:relative;
+    }
+    .logo:after{
+      content:"";
+      position:absolute;inset:9px;
+      border-radius:9px;
+      background: rgba(0,0,0,.22);
+      border:1px solid rgba(255,255,255,.18);
+    }
+    .brand strong{letter-spacing:.2px}
+    .navlinks{display:flex;gap:16px;flex-wrap:wrap;justify-content:flex-end}
+    .navlinks a{
+      color:var(--muted);
+      font-size:14px;
+      padding:10px 10px;
+      border-radius:12px;
+      transition: .18s ease;
+    }
+    .navlinks a:hover{color:var(--text);background: rgba(255,255,255,.05)}
+
+    .nav-cta{display:flex;gap:10px;align-items:center;justify-content:flex-end;min-width:220px}
+
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;
+      border-radius:14px;
+      padding:12px 14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      color:var(--text);
+      transition:.18s ease;
+      font-weight:650;
+      font-size:14px;
+      cursor:pointer;
+      user-select:none;
+    }
+    .btn:hover{transform: translateY(-1px);border-color: rgba(255,255,255,.18)}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(124,92,255,.95), rgba(34,211,238,.85));
+      border-color: rgba(255,255,255,.18);
+      box-shadow: 0 0 0 6px rgba(124,92,255,.12);
+    }
+    .btn.ghost{background: transparent}
+    .btn .icon{
+      width:18px;height:18px;display:inline-block;
+      background: rgba(255,255,255,.18);
+      border:1px solid rgba(255,255,255,.22);
+      border-radius:6px;
+    }
+
+    /* Sections */
+    section{padding:68px 0}
+    .section-head{
+      display:flex;align-items:flex-end;justify-content:space-between;gap:18px;flex-wrap:wrap;
+      margin-bottom:26px;
+    }
+    .kicker{
+      color: rgba(34,211,238,.95);
+      font-weight:800;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-size:12px;
+    }
+    h1,h2,h3{margin:0}
+    h1{font-size:clamp(32px, 4.2vw, 52px);line-height:1.06;letter-spacing:-.02em}
+    h2{font-size:clamp(22px, 2.4vw, 30px);letter-spacing:-.01em}
+    p{margin:0;color:var(--muted)}
+
+    .hero{
+      padding:46px 0 20px;
+      position:relative;
+    }
+    .hero-grid{display:grid;grid-template-columns: 1.15fr .85fr;gap:22px;align-items:center}
+    .hero-card{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .hero-media{
+      min-height: 360px;
+      background:
+        radial-gradient(900px 420px at 20% 10%, rgba(124,92,255,.45), transparent 55%),
+        radial-gradient(650px 350px at 80% 20%, rgba(34,211,238,.35), transparent 55%),
+        linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      position:relative;
+    }
+    .hero-media:before{
+      content:"";
+      position:absolute;inset:-40px;
+      background:
+        repeating-linear-gradient(90deg, rgba(255,255,255,.06) 0 2px, transparent 2px 12px);
+      opacity:.3;
+      transform: rotate(6deg);
+    }
+    .hero-media .overlay{
+      position:absolute;inset:0;
+      background: linear-gradient(180deg, rgba(7,10,18,.08), rgba(7,10,18,.65));
+    }
+    .hero-badges{position:absolute;left:18px;bottom:18px;right:18px;display:flex;gap:12px;flex-wrap:wrap}
+    .badge{
+      background: rgba(7,10,18,.55);
+      border:1px solid rgba(255,255,255,.12);
+      padding:10px 12px;
+      border-radius:14px;
+      font-weight:750;
+      font-size:13px;
+    }
+    .badge span{display:block;color:var(--muted);font-weight:650;font-size:12px;margin-top:2px}
+
+    .hero-content{padding:18px 0}
+    .lead{font-size:16px;max-width:58ch;margin-top:14px}
+
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+    .hero-actions .btn{padding:13px 16px}
+
+    .hero-stats{
+      display:grid;grid-template-columns:repeat(3, 1fr);gap:12px;
+      margin-top:26px;
+    }
+    .stat{
+      background: rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:16px;
+      padding:14px;
+    }
+    .stat b{display:block;font-size:18px}
+
+    /* Cards + Grid */
+    .grid-3{display:grid;grid-template-columns:repeat(3, 1fr);gap:14px}
+    .grid-2{display:grid;grid-template-columns:repeat(2, 1fr);gap:14px}
+    .card{
+      background: rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      padding:18px;
+    }
+    .card h3{font-size:16px;margin-bottom:8px}
+    .muted{color:var(--muted)}
+
+    .divider{height:1px;background:rgba(255,255,255,.08);margin:18px 0}
+
+    /* Stations / Pricing */
+    .plan{
+      position:relative;
+      overflow:hidden;
+    }
+    .plan:before{
+      content:"";
+      position:absolute;left:-40px;top:-60px;width:180px;height:180px;
+      background: radial-gradient(circle at 30% 30%, rgba(124,92,255,.45), transparent 60%);
+      opacity:.75;
+      pointer-events:none;
+    }
+    .price{font-size:26px;font-weight:900;letter-spacing:-.02em}
+    .tag{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;color:rgba(34,211,238,.95)}
+    .tag i{width:10px;height:10px;border-radius:4px;background:rgba(34,211,238,.95);display:inline-block;box-shadow:0 0 0 5px rgba(34,211,238,.12)}
+
+    .list{margin:12px 0 0;padding:0;list-style:none}
+    .list li{display:flex;gap:10px;margin:8px 0;color:var(--muted)}
+    .check{
+      width:18px;height:18px;border-radius:6px;
+      background: rgba(34,211,238,.14);
+      border:1px solid rgba(34,211,238,.35);
+      display:flex;align-items:center;justify-content:center;
+      flex:0 0 auto;
+      margin-top:2px;
+    }
+    .check svg{width:12px;height:12px;fill:rgba(34,211,238,.95)}
+
+    /* Gallery */
+    .gallery{
+      display:grid;grid-template-columns:repeat(12, 1fr);gap:12px;
+    }
+    .shot{
+      border-radius: var(--radius);
+      border:1px solid rgba(255,255,255,.08);
+      background:
+        radial-gradient(500px 260px at 25% 10%, rgba(124,92,255,.35), transparent 60%),
+        radial-gradient(420px 240px at 80% 20%, rgba(34,211,238,.26), transparent 60%),
+        rgba(255,255,255,.03);
+      min-height: 150px;
+      position:relative;
+      overflow:hidden;
+    }
+    .shot:after{
+      content:"";
+      position:absolute;inset:0;
+      background: linear-gradient(180deg, transparent 40%, rgba(7,10,18,.55));
+    }
+    .shot .label{position:absolute;left:14px;bottom:12px;z-index:1;font-weight:850;font-size:14px}
+    .span-4{grid-column: span 4}
+    .span-6{grid-column: span 6}
+    .span-8{grid-column: span 8}
+
+    /* Forms */
+    form{margin:0}
+    .field{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+    label{font-size:13px;color:var(--muted);font-weight:700}
+    input, textarea, select{
+      width:100%;
+      background: rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius: 14px;
+      padding:12px 12px;
+      color:var(--text);
+      outline:none;
+    }
+    input:focus, textarea:focus, select:focus{
+      border-color: rgba(124,92,255,.55);
+      box-shadow: 0 0 0 6px var(--ring);
+    }
+    textarea{min-height:120px;resize:vertical}
+
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+    /* Footer */
+    footer{
+      padding:28px 0 42px;
+      border-top:1px solid rgba(255,255,255,.08);
+      background: rgba(0,0,0,.10);
+    }
+    .footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:18px}
+    .small{color:var(--muted);font-size:13px}
+    .footer-links{display:flex;flex-direction:column;gap:8px}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr}
+      .nav-cta{min-width:auto}
+      .hero-media{min-height: 300px}
+      .grid-3{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+      .hero-stats{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr}
+      .gallery{grid-template-columns:repeat(6,1fr)}
+      .span-4{grid-column: span 6}
+      .span-6{grid-column: span 6}
+      .span-8{grid-column: span 6}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto}
+      .btn:hover{transform:none}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="nav">
+        <div class="brand" aria-label="ValTour eSports">
+          <div class="logo" aria-hidden="true"></div>
+          <strong>ValTour eSports</strong>
+        </div>
+
+        <nav class="navlinks" aria-label="Primary navigation">
+          <a href="#about">About</a>
+          <a href="#stations">Stations</a>
+          <a href="#games">Games</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#events">Events</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="nav-cta">
+          <a class="btn primary" href="#booking" role="button"><span class="icon" aria-hidden="true"></span>Book a PC</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="kicker">Gaming Cafe • eSports Vibes</div>
+            <h1 id="hero-title">Level Up Your Game at <span style="color:rgba(34,211,238,.95)">ValTour eSports</span></h1>
+            <p class="lead">A high-performance PC gaming space with Standard, Premium & VIP stations—plus streaming booths, tournament nights, and fast booking via WhatsApp.</p>
+
+            <div class="hero-actions">
+              <a class="btn primary" href="#booking"><span class="icon" aria-hidden="true"></span>Book a PC</a>
+              <a class="btn ghost" href="#pricing"><span class="icon" aria-hidden="true"></span>View Pricing</a>
+            </div>
+
+            <div class="hero-stats" role="list" aria-label="Highlights">
+              <div class="stat" role="listitem"><b>24/7 Power Backup</b><span class="muted small">No gameplay interruptions</span></div>
+              <div class="stat" role="listitem"><b>Fast Networking</b><span class="muted small">Low-latency LAN-ready setup</span></div>
+              <div class="stat" role="listitem"><b>Tournament Ready</b><span class="muted small">Weekly events & prizes</span></div>
+            </div>
+          </div>
+
+          <div class="hero-card hero-media" role="img" aria-label="Gaming setup preview">
+            <div class="overlay"></div>
+            <div class="hero-badges">
+              <div class="badge">High FPS <span>Optimized setups</span></div>
+              <div class="badge">VIP Comfort <span>Ergonomic chairs + AC</span></div>
+              <div class="badge">Streaming Booth <span>Creator-friendly space</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Our Story</div>
+            <h2 id="about-title">Why ValTour eSports exists</h2>
+          </div>
+          <p class="small" style="max-width:52ch">Replace the placeholders below with your real details—this template is structured for a fast publishing workflow.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Our Story</h3>
+            <p class="muted">ValTour eSports started with one goal: bring reliable, high-performance PC gaming to the local community—where players can compete, improve, and have fun together.</p>
+            <div class="divider"></div>
+            <h3>Mission & Vision</h3>
+            <p class="muted">Mission: Make gaming accessible with great hardware, comfort, and fairness. Vision: Build a hub for eSports culture, tournaments, creators, and lifelong gamers.</p>
+          </div>
+
+          <div class="card">
+            <h3>Owner Introduction</h3>
+            <p class="muted"><b>Sri Yeswanth Tammannagari</b> — “We built ValTour eSports for players who take fun seriously. Expect clean setups, good service, and events that feel pro.”</p>
+            <div class="divider"></div>
+            <h3>Why Choose Us</h3>
+            <ul class="list" aria-label="Why choose us">
+              <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9L17.7 5.2l1.4 1.4z"/></svg></span>Consistent performance across station tiers</li>
+              <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9L17.7 5.2l1.4 1.4z"/></svg></span>Comfort-first environment (AC, ergonomic seating)</li>
+              <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9L17.7 5.2l1.4 1.4z"/></svg></span>Weekly tournaments + prize pools</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATIONS / HARDWARE -->
+    <section id="stations" aria-labelledby="stations-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Infrastructure & Hardware</div>
+            <h2 id="stations-title">PC specs, peripherals, and networking</h2>
+          </div>
+          <p class="small" style="max-width:52ch">Add your exact CPU/GPU/RAM + internet speed. This section is designed to map 1:1 to your station categories.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Networking</h3>
+            <p class="muted">Internet Speed: <b>100 Mbps</b> (placeholder). Network Setup: router + low-latency routing for competitive play.</p>
+          </div>
+          <div class="card">
+            <h3>Peripherals</h3>
+            <p class="muted">Mice, keyboards, headsets, and monitors (placeholders). Add brand/models you use for each tier.</p>
+          </div>
+          <div class="card">
+            <h3>Comfort</h3>
+            <p class="muted">Ergonomic chairs, ventilation + AC, and a clean layout so you can focus on gameplay.</p>
+          </div>
+        </div>
+
+        <div style="height:18px"></div>
+
+        <div class="grid-3">
+          <div class="card plan">
+            <div class="tag"><i></i>Standard Gaming Stations</div>
+            <div style="height:10px"></div>
+            <h3>Everyday competitive play</h3>
+            <p class="muted">Great for casual squads and improving your aim. Built for stable FPS and smooth gameplay.</p>
+            <ul class="list">
+              <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9L17.7 5.2l1.4 1.4z"/></svg></span>CPU/GPU: <b>Update me</b></li>
+              <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9L17.7 5.2l1.4 1.4z"/></svg></span>RAM: <b>Update me</b></li>
+              <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9L17.7 5.2l1.4 1.4z"/></svg></span>Storage: <b>Update me</b></li>
+            </ul>
+          </div>
+
+          <div class="card plan">
+            <div class="tag"><i></i>Premium / VIP Stations</div>
+            <div style="height:10px"></div>
+            <h3>High-end performance</h3>
+            <p class="muted">For players who want maximum smoothness, higher refresh consistency, and extra comfort.</p>
+            <ul class="list">
+              <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9L17.7 5.2l1.4 1.4z"/></svg></span>CPU/GPU: <b>Update me</b></li>
+              <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9L17.7 5.2l1.4 1.4z"/></svg></span>RAM: <b>Update me</b></li>
+              <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9L17.7 5.2l1.4 1.4z"/></svg></span>Storage: <b>Update me</b></li>
+            </ul>
+          </div>
+
+          <div class="card plan">
+            <div class="tag"><i></i>Streaming Booths + Tournament Area</div>
+            <div style="height:10px"></div>
+            <h3>Creator-friendly & competition-ready</h3>
+            <p class="muted">Streaming booths designed for smooth capture and comfortable production. Tournament zone with the right setup for competitive nights.</p>
+            <ul class="list">
+              <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9L17.7 5.2l1.4 1.4z"/></svg></span>Streaming: <b>Update me</b> (camera/mic setup)</li>
+              <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9L17.7 5.2l1.4 1.4z"/></svg></span>Audio: <b>Update me</b></li>
+              <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9L17.7 5.2l1.4 1.4z"/></svg></span>Tournament: <b>Update me</b> (LAN/competitive config)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GAMES -->
+    <section id="games" aria-labelledby="games-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Games Available</div>
+            <h2 id="games-title">Popular titles + free & premium categories</h2>
+          </div>
+          <p class="small" style="max-width:52ch">Update lists with your real game library.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Popular Titles</h3>
+            <ul class="list">
+              <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9L17.7 5.2l1.4 1.4z"/></svg></span>FPS: Valorant / CS2 / Apex (examples)</li>
+              <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9L17.7 5.2l1.4 1.4z"/></svg></span>MOBA: Dota 2 / League (examples)</li>
+              <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9L17.7 5.2l1.4 1.4z"/></svg></span>Racing/Sports: FIFA / F1 / Forza (examples)</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Free-to-Play + Premium</h3>
+            <p class="muted">Add your F2P list (Warframe, Fortnite, etc.) and any premium games you offer.</p>
+            <div class="divider"></div>
+            <div class="grid-2" style="gap:10px">
+              <div>
+                <b style="display:block;margin-bottom:6px">Free-to-Play (F2P)</b>
+                <p class="muted small">Placeholder: Fortnite, Valorant, Rocket League</p>
+              </div>
+              <div>
+                <b style="display:block;margin-bottom:6px">Premium (Paid)</b>
+                <p class="muted small">Placeholder: Elden Ring, Cyberpunk, etc.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="height:14px"></div>
+
+        <div class="card">
+          <h3>Gaming Platforms</h3>
+          <p class="muted">Steam • Epic Games • EA/Origin • Battlenet (add what you support)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" aria-labelledby="pricing-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Pricing & Packages</div>
+            <h2 id="pricing-title">Choose your station</h2>
+          </div>
+          <p class="small" style="max-width:52ch">Replace ₹X placeholders with real pricing and inclusions.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card plan">
+            <div class="tag"><i></i>Casual Gaming</div>
+            <div style="height:10px"></div>
+            <h3>Standard PC</h3>
+            <div class="price">₹X / hour</div>
+            <ul class="list">
+              <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9L17.7 5.2l1.4 1.4z"/></svg></span>Standard PC gaming</li>
+              <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9L17.7 5.2l1.4 1.4z"/></svg></span>1 drink included</li>
+              <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9L17.7 5.2l1.4 1.4z"/></svg></span>Comfort seating + AC</li>
+            </ul>
+          </div>
+
+          <div class="card plan" style="border-color: rgba(124,92,255,.35); box-shadow: 0 0 0 8px rgba(124,92,255,.10);">
+            <div class="tag"><i></i>Pro Gamer</div>
+            <div style="height:10px"></div>
+            <h3>Premium / High-end</h3>
+            <div class="price">₹X / hour</div>
+            <ul class="list">
+              <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9L17.7 5.2l1.4 1.4z"/></svg></span>High-end PC performance</li>
+              <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9L17.7 5.2l1.4 1.4z"/></svg></span>2 drinks included</li>
+              <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9L17.7 5.2l1.4 1.4z"/></svg></span>Priority booking slot</li>
+            </ul>
+          </div>
+
+          <div class="card plan">
+            <div class="tag"><i></i>All-Day Pass</div>
+            <div style="height:10px"></div>
+            <h3>Unlimited gaming</h3>
+            <div class="price">₹X / day</div>
+            <ul class="list">
+              <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9L17.7 5.2l1.4 1.4z"/></svg></span>Unlimited gaming time</li>
+              <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9L17.7 5.2l1.4 1.4z"/></svg></span>Meals included (placeholder)</li>
+              <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9L17.7 5.2l1.4 1.4z"/></svg></span>Great for groups</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="height:14px"></div>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="tag"><i></i>Monthly Membership</div>
+            <div style="height:10px"></div>
+            <h3>Discounts + priority booking</h3>
+            <div class="price">₹X / month</div>
+            <ul class="list">
+              <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9L17.7 5.2l1.4 1.4z"/></svg></span>Discounted rates</li>
+              <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9L17.7 5.2l1.4 1.4z"/></svg></span>Priority booking</li>
+              <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9L17.7 5.2l1.4 1.4z"/></svg></span>Member-only offers (optional)</li>
+            </ul>
+          </div>
+
+          <div class="card" id="booking">
+            <div class="kicker">Online Booking (Placeholder)</div>
+            <h3 style="margin-top:8px">Reserve your PC</h3>
+            <p class="muted">This template includes a booking UI as a placeholder. Connect it to your backend or booking tool later.</p>
+            <div class="divider"></div>
+            <a class="btn primary" href="#contact" role="button"><span class="icon" aria-hidden="true"></span>Request Booking</a>
+            <div style="height:10px"></div>
+            <a class="btn" href="#" role="button" onclick="return false" aria-disabled="true"><span class="icon" aria-hidden="true"></span>WhatsApp Quick Booking</a>
+            <p class="small" style="margin-top:10px">Tip: update the WhatsApp link to your business number.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FACILITIES -->
+    <section aria-labelledby="facilities-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Facilities & Amenities</div>
+            <h2 id="facilities-title">Comfort, food, and convenience</h2>
+          </div>
+          <p class="small" style="max-width:52ch">Customize the bullets and add your real menu/pricing.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Food & Beverages</h3>
+            <p class="muted">Snacks, energy drinks, coffee, and meals (placeholders). Ask about combo deals during tournaments.</p>
+          </div>
+          <div class="card">
+            <h3>Comfort</h3>
+            <p class="muted">Ergonomic chairs, AC, ventilation, and a clean, player-friendly environment.</p>
+          </div>
+          <div class="card">
+            <h3>Power Backup</h3>
+            <p class="muted"><b>24/7 power supply</b> (placeholder). Keep matches running and reduce downtime.</p>
+          </div>
+        </div>
+
+        <div style="height:14px"></div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Rest Area</h3>
+            <p class="muted">Lounge + relaxation space for players waiting between matches or watching others.</p>
+          </div>
+          <div class="card">
+            <h3>Parking</h3>
+            <p class="muted">Vehicle parking availability. Add the nearest landmark/parking guidance in the Location section.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENTS -->
+    <section id="events" aria-labelledby="events-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Events & Tournaments</div>
+            <h2 id="events-title">Compete weekly. Win big.</h2>
+          </div>
+          <p class="small" style="max-width:52ch">Replace the schedule with your real tournament times + prize pools.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Weekly Events</h3>
+            <p class="muted"><b>Every Friday</b> — Multiplayer nights + cash/prize (placeholder).</p>
+          </div>
+          <div class="card">
+            <h3>Tournament Schedule</h3>
+            <p class="muted">Upcoming competitions: <b>CS2 • Valorant • FIFA • Rocket League</b> (examples).</p>
+          </div>
+          <div class="card">
+            <h3>Prize Pools</h3>
+            <p class="muted">Winning rewards + trophies (placeholder). Add tiered prizes for 1st/2nd/3rd.</p>
+          </div>
+        </div>
+
+        <div style="height:14px"></div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Registration: How to join</h3>
+            <ul class="list">
+              <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9L17.7 5.2l1.4 1.4z"/></svg></span>Register via WhatsApp or at the counter</li>
+              <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9L17.7 5.2l1.4 1.4z"/></svg></span>Share your in-game ID</li>
+              <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9L17.7 5.2l1.4 1.4z"/></svg></span>Get confirmation + match timings</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Past Events Gallery</h3>
+            <p class="muted">Use the Gallery section below to show tournament photos/videos.</p>
+            <div class="divider"></div>
+            <a class="btn" href="#gallery"><span class="icon" aria-hidden="true"></span>View Gallery</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" aria-labelledby="gallery-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Gallery</div>
+            <h2 id="gallery-title">Facilities in action</h2>
+          </div>
+          <p class="small" style="max-width:52ch">Replace the placeholders with real photos.</p>
+        </div>
+
+        <div class="gallery" aria-label="Photo placeholders">
+          <div class="shot span-8"><div class="label">Standard Stations</div></div>
+          <div class="shot span-4"><div class="label">Premium Setup</div></div>
+          <div class="shot span-4"><div class="label">VIP Comfort</div></div>
+          <div class="shot span-4"><div class="label">Streaming Booth</div></div>
+          <div class="shot span-4"><div class="label">Tournament Area</div></div>
+          <div class="shot span-6"><div class="label">Food & Beverages</div></div>
+          <div class="shot span-6"><div class="label">Rest Lounge</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCATION + CONTACT -->
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Location & Contact</div>
+            <h2 id="contact-title">Visit us or book ahead</h2>
+          </div>
+          <p class="small" style="max-width:52ch">Replace the address/phone placeholders with your real details.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Address</h3>
+            <p class="muted">ValTour eSports, <b>Street / Landmark</b>, <b>City, State</b> (placeholder)</p>
+            <div class="divider"></div>
+            <h3>Operating Hours</h3>
+            <p class="muted">Daily: <b>12:00 PM – 12:00 AM</b> (placeholder)</p>
+            <div class="divider"></div>
+            <h3>Directions</h3>
+            <p class="muted">Add a Google Maps embed here or a link button below.</p>
+            <div style="height:10px"></div>
+            <a class="btn" href="#" role="button" onclick="return false" aria-disabled="true"><span class="icon" aria-hidden="true"></span>Open in Google Maps</a>
+          </div>
+
+          <div class="card">
+            <h3>Contact Form</h3>
+            <p class="muted">Send an inquiry (UI placeholder). Connect to email/CRM later.</p>
+
+            <div class="divider"></div>
+
+            <form onsubmit="event.preventDefault(); alert('Form submission placeholder. Connect to backend/email later.');">
+              <div class="form-row">
+                <div class="field">
+                  <label for="name">Name</label>
+                  <input id="name" name="name" placeholder="Your name" required />
+                </div>
+                <div class="field">
+                  <label for="phone">Phone / WhatsApp</label>
+                  <input id="phone" name="phone" placeholder="+91 ..." required />
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="topic">Topic</label>
+                <select id="topic" name="topic">
+                  <option>PC Booking</option>
+                  <option>Membership</option>
+                  <option>Events / Tournament</option>
+                  <option>General Inquiry</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Tell us what you need..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn primary"><span class="icon" aria-hidden="true"></span>Send Message</button>
+
+              <p class="small" style="margin-top:10px">WhatsApp Integration CTA placeholder below:</p>
+              <a class="btn" href="#" role="button" onclick="return false" aria-disabled="true"><span class="icon" aria-hidden="true"></span>WhatsApp: +91XXXXXXXXXX</a>
+            </form>
+          </div>
+        </div>
+
+        <div style="height:14px"></div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Phone/WhatsApp</h3>
+            <p class="muted"><b>+91XXXXXXXXXX</b> (placeholder)</p>
+          </div>
+          <div class="card">
+            <h3>Social Media</h3>
+            <p class="muted">Discord • Instagram • Facebook (add real links)</p>
+          </div>
+          <div class="card">
+            <h3>Member Login (Placeholder)</h3>
+            <p class="muted">Track usage and loyalty points (connect later).</p>
+            <a class="btn" href="#" role="button" onclick="return false" aria-disabled="true" style="margin-top:10px"><span class="icon" aria-hidden="true"></span>Login</a>
+          </div>
+        </div>
+
+        <!-- FAQ -->
+        <div style="height:34px"></div>
+        <div class="card">
+          <div class="section-head" style="margin-bottom:14px">
+            <div>
+              <div class="kicker">FAQ</div>
+              <h2 style="margin-top:8px">Common questions</h2>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div>
+              <h3>Do I need to book in advance?</h3>
+              <p class="muted">Recommended for Premium/VIP stations and weekends. You can request booking from the booking CTA.</p>
+            </div>
+            <div>
+              <h3>Which games do you support?</h3>
+              <p class="muted">We support popular FPS/MOBA/Racing/Sports titles. Update the Games section with your full library.</p>
+            </div>
+            <div>
+              <h3>Do you provide food and drinks?</h3>
+              <p class="muted">Yes—snacks, energy drinks, coffee, and meals. Add your menu details if you want.</p>
+            </div>
+            <div>
+              <h3>Is there parking available?</h3>
+              <p class="muted">Add your parking information in the Location card above.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonials (minimal placeholders) -->
+        <div style="height:22px"></div>
+        <div class="grid-3">
+          <div class="card">
+            <h3>“Smooth PCs and good service.”</h3>
+            <p class="muted small">— Player review (placeholder)</p>
+          </div>
+          <div class="card">
+            <h3>“Tournament nights are fun!”</h3>
+            <p class="muted small">— Participant review (placeholder)</p>
+          </div>
+          <div class="card">
+            <h3>“VIP station comfort is next level.”</h3>
+            <p class="muted small">— Regular member (placeholder)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand" style="margin-bottom:10px">
+            <div class="logo" aria-hidden="true"></div>
+            <strong>ValTour eSports</strong>
+          </div>
+          <p class="small">Gaming cafe with Standard, Premium & VIP stations, streaming booths, and weekly tournaments. Replace placeholder data with your real content to go live.</p>
+        </div>
+        <div>
+          <b>Quick Links</b>
+          <div class="footer-links" style="margin-top:10px">
+            <a class="small" href="#about">About</a>
+            <a class="small" href="#stations">Stations</a>
+            <a class="small" href="#pricing">Pricing</a>
+            <a class="small" href="#events">Events</a>
+          </div>
+        </div>
+        <div>
+          <b>Get in Touch</b>
+          <div class="footer-links" style="margin-top:10px">
+            <span class="small">Phone: +91XXXXXXXXXX</span>
+            <span class="small">WhatsApp CTA: update link in code</span>
+            <span class="small">SEO: update address + embed map</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider" style="margin:18px 0"></div>
+      <p class="small">© <span id="year"></span> ValTour eSports. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
