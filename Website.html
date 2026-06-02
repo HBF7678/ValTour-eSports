@@ -307,9 +307,14 @@
     @media (max-width: 560px){
       .container{padding:0 14px}
       section{padding:56px 0}
-      .nav{padding:12px 0}
-      .navlinks{gap:8px}
-      .navlinks a{padding:8px 8px;font-size:13px}
+
+      /* Mobile nav: stack links cleanly under the brand */
+      .nav{padding:12px 0;flex-direction:column;align-items:flex-start}
+      .navlinks{gap:8px;justify-content:flex-start}
+      .nav-cta{width:100%;justify-content:flex-start;min-width:0}
+      .navlinks a{padding:8px 10px;font-size:13px}
+      .nav-cta .btn{width:100%;justify-content:center}
+
       .hero-actions .btn{width:100%;justify-content:center}
       .hero-stats{gap:10px}
       .card{padding:16px}
